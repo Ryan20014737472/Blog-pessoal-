@@ -1,51 +1,73 @@
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  background: #0f172a;
   font-family: Arial, sans-serif;
-  color: white;
+  color: #e5e7eb;
 }
 
 header {
   text-align: center;
-  padding: 40px 20px;
+  padding: 50px 20px;
 }
 
 header h1 {
   margin: 0;
-  font-size: 32px;
+  font-size: 36px;
 }
 
 header p {
-  opacity: 0.8;
   margin-top: 10px;
+  opacity: 0.7;
 }
 
 main {
-  padding: 20px;
-  max-width: 600px;
+  max-width: 900px;
   margin: auto;
+  padding: 20px;
 }
 
-.momento {
+.post {
   display: flex;
-  gap: 15px;
-  margin-bottom: 25px;
-  background: rgba(255,255,255,0.1);
-  padding: 15px;
-  border-radius: 16px;
-  align-items: center;
-  backdrop-filter: blur(10px);
+  gap: 25px;
+  align-items: flex-start;
 }
 
-.momento img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
+.post img {
+  width: 45%;
   border-radius: 12px;
+  object-fit: cover;
 }
 
-.momento p {
-  font-size: 14px;
-  line-height: 1.5;
+.texto {
+  width: 55%;
+}
+
+.texto h2 {
+  margin-top: 0;
+  font-size: 22px;
+}
+
+.texto p {
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: rgba(255,255,255,0.15);
+  margin: 40px 0;
+}
+
+/* Responsivo (celular) */
+@media (max-width: 700px) {
+  .post {
+    flex-direction: column;
+  }
+
+  .post img,
+  .texto {
+    width: 100%;
+  }
 }
