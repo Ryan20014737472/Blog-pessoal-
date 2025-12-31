@@ -1,4 +1,4 @@
-/* FUNDO + ANIMAÇÃO */
+/* FUNDO + DEGRADÊ ANIMADO */
 body {
   margin: 0;
   padding: 0;
@@ -15,6 +15,8 @@ body {
   animation: sangue 25s ease infinite;
   font-family: Arial, sans-serif;
   color: #f1f1f1;
+  position: relative;
+  z-index: 0;
 }
 
 /* ANIMAÇÃO DO DEGRADÊ */
@@ -30,11 +32,112 @@ body {
   }
 }
 
+/* GIF DE FANTASMAS (CAMADA EXTRA) */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("0rebqwiri5w61.gif") center / cover no-repeat;
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: -1;
+}
+
 /* HEADER */
 header {
   text-align: center;
   padding: 60px 20px 40px;
 }
+
+header h1 {
+  margin: 0;
+  font-size: 40px;
+  letter-spacing: 2px;
+}
+
+header p {
+  margin-top: 12px;
+  opacity: 0.75;
+  font-size: 14px;
+}
+
+/* CONTEÚDO */
+main {
+  max-width: 950px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* POST */
+.post {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+/* IMAGEM GRANDE */
+.post img {
+  width: 45%;
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* TEXTO */
+.texto {
+  width: 55%;
+}
+
+.texto h2 {
+  margin-top: 0;
+  font-size: 24px;
+  color: #ff4d6d;
+}
+
+.texto p {
+  line-height: 1.7;
+  font-size: 15px;
+  opacity: 0.95;
+}
+
+/* DIVISÓRIA */
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #ff003c,
+    transparent
+  );
+  margin: 50px 0;
+}
+
+/* RESPONSIVO (CELULAR) */
+@media (max-width: 750px) {
+  .post {
+    flex-direction: column;
+  }
+
+  .post img,
+  .texto {
+    width: 100%;
+  }
+
+  header h1 {
+    font-size: 32px;
+  }
+}
+
+/* (OPCIONAL) DESLIGAR GIF NO CELULAR */
+@media (max-width: 700px) {
+  body::before {
+    display: none;
+  }
+}}
 
 header h1 {
   margin: 0;
