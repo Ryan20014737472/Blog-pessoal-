@@ -1,3 +1,4 @@
+/* FUNDO + ANIMAÇÃO */
 body {
   margin: 0;
   padding: 0;
@@ -14,6 +15,19 @@ body {
   animation: sangue 25s ease infinite;
   font-family: Arial, sans-serif;
   color: #f1f1f1;
+}
+
+/* ANIMAÇÃO DO DEGRADÊ */
+@keyframes sangue {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* HEADER */
@@ -35,6 +49,72 @@ header p {
 }
 
 /* CONTEÚDO */
+main {
+  max-width: 950px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* POST */
+.post {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+/* IMAGEM */
+.post img {
+  width: 45%;
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* TEXTO */
+.texto {
+  width: 55%;
+}
+
+.texto h2 {
+  margin-top: 0;
+  font-size: 24px;
+  color: #ff4d6d;
+}
+
+.texto p {
+  line-height: 1.7;
+  font-size: 15px;
+  opacity: 0.95;
+}
+
+/* DIVISÓRIA */
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #ff003c,
+    transparent
+  );
+  margin: 50px 0;
+}
+
+/* RESPONSIVO (CELULAR) */
+@media (max-width: 750px) {
+  .post {
+    flex-direction: column;
+  }
+
+  .post img,
+  .texto {
+    width: 100%;
+  }
+
+  header h1 {
+    font-size: 32px;
+  }
+}/* CONTEÚDO */
 main {
   max-width: 950px;
   margin: auto;
