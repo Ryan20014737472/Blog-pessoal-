@@ -1,4 +1,4 @@
-/* FUNDO + DEGRADÊ ANIMADO */
+/* FUNDO + DEGRADÊ */
 body {
   margin: 0;
   padding: 0;
@@ -16,31 +16,20 @@ body {
   font-family: Arial, sans-serif;
   color: #f1f1f1;
   position: relative;
-  z-index: 0;
 }
 
-/* ANIMAÇÃO DO DEGRADÊ */
 @keyframes sangue {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-/* GIF DE FANTASMAS (CAMADA EXTRA) */
+/* GIF DE FUNDO */
 body::before {
   content: "";
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("0rebqwiri5w61.gif") center / cover no-repeat;
+  inset: 0;
+  background: url("SEU_GIF_AQUI.gif") center / cover no-repeat;
   opacity: 0.06;
   pointer-events: none;
   z-index: -1;
@@ -53,282 +42,96 @@ header {
 }
 
 header h1 {
-  margin: 0;
   font-size: 40px;
-  letter-spacing: 2px;
+  margin: 0;
 }
 
 header p {
-  margin-top: 12px;
-  opacity: 0.75;
-  font-size: 14px;
+  opacity: 0.7;
 }
 
-/* CONTEÚDO */
+/* MAIN */
 main {
   max-width: 950px;
   margin: auto;
   padding: 20px;
+  position: relative;
 }
 
-/* POST */
+/* LINHA DO TEMPO ONDULADA VERDE */
+main::before {
+  content: "";
+  position: absolute;
+  top: 200px;
+  bottom: 200px;
+  left: 50%;
+  width: 6px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, #00ff88, #00cc66, #00ff88);
+  box-shadow: 0 0 12px #00ff88, 0 0 25px rgba(0,255,136,.8);
+  border-radius: 50px;
+  animation: ondaTempo 6s ease-in-out infinite;
+}
+
+@keyframes ondaTempo {
+  0% { transform: translateX(-50%) skewY(0deg); }
+  50% { transform: translateX(-50%) skewY(6deg); }
+  100% { transform: translateX(-50%) skewY(0deg); }
+}
+
+/* POSTS */
 .post {
   display: flex;
   gap: 30px;
   align-items: flex-start;
+  position: relative;
+  z-index: 2;
 }
 
-/* IMAGEM GRANDE */
 .post img {
   width: 45%;
   border-radius: 14px;
-  object-fit: cover;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  box-shadow: 0 10px 30px rgba(0,0,0,.6);
 }
 
-/* TEXTO */
 .texto {
   width: 55%;
 }
 
 .texto h2 {
-  margin-top: 0;
-  font-size: 24px;
   color: #ff4d6d;
+  margin-top: 0;
 }
 
-.texto p {
-  line-height: 1.7;
-  font-size: 15px;
-  opacity: 0.95;
+/* PONTO DA LINHA DO TEMPO */
+.post.timeline::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  background: #00ff88;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px #00ff88, 0 0 20px rgba(0,255,136,.9);
 }
 
 /* DIVISÓRIA */
-hr {
-  border: none;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    #ff003c,
-    transparent
-  );
-  margin: 50px 0;
-}
-
-/* RESPONSIVO (CELULAR) */
-@media (max-width: 750px) {
-  .post {
-    flex-direction: column;
-  }
-
-  .post img,
-  .texto {
-    width: 100%;
-  }
-
-  header h1 {
-    font-size: 32px;
-  }
-}
-
-/* (OPCIONAL) DESLIGAR GIF NO CELULAR */
-@media (max-width: 700px) {
-  body::before {
-    display: none;
-  }
-}}
-
-header h1 {
-  margin: 0;
-  font-size: 40px;
-  letter-spacing: 2px;
-}
-
-header p {
-  margin-top: 12px;
-  opacity: 0.75;
-  font-size: 14px;
-}
-
-/* CONTEÚDO */
-main {
-  max-width: 950px;
-  margin: auto;
-  padding: 20px;
-}
-
-/* POST */
-.post {
-  display: flex;
-  gap: 30px;
-  align-items: flex-start;
-}
-
-/* IMAGEM */
-.post img {
-  width: 45%;
-  border-radius: 14px;
-  object-fit: cover;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-}
-
-/* TEXTO */
-.texto {
-  width: 55%;
-}
-
-.texto h2 {
-  margin-top: 0;
-  font-size: 24px;
-  color: #ff4d6d;
-}
-
-.texto p {
-  line-height: 1.7;
-  font-size: 15px;
-  opacity: 0.95;
-}
-
-/* DIVISÓRIA */
-hr {
-  border: none;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    #ff003c,
-    transparent
-  );
-  margin: 50px 0;
-}
-
-/* RESPONSIVO (CELULAR) */
-@media (max-width: 750px) {
-  .post {
-    flex-direction: column;
-  }
-
-  .post img,
-  .texto {
-    width: 100%;
-  }
-
-  header h1 {
-    font-size: 32px;
-  }
-}/* CONTEÚDO */
-main {
-  max-width: 950px;
-  margin: auto;
-  padding: 20px;
-}
-
-/* POST */
-.post {
-  display: flex;
-  gap: 30px;
-  align-items: flex-start;
-}
-
-/* IMAGEM GRANDE */
-.post img {
-  width: 45%;
-  border-radius: 14px;
-  object-fit: cover;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-}
-
-/* TEXTO */
-.texto {
-  width: 55%;
-}
-
-.texto h2 {
-  margin-top: 0;
-  font-size: 24px;
-  color: #ff4d6d;
-}
-
-.texto p {
-  line-height: 1.7;
-  font-size: 15px;
-  opacity: 0.95;
-}
-
-/* DIVISÓRIA */
-hr {
-  border: none;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    #ff003c,
-    transparent
-  );
-  margin: 50px 0;
-}
-
-/* RESPONSIVO (CELULAR) */
-@media (max-width: 750px) {
-  .post {
-    flex-direction: column;
-  }
-
-  .post img,
-  .texto {
-    width: 100%;
-  }
-
-  header h1 {
-    font-size: 32px;
-  }
-}  width: 45%;
-  border-radius: 12px;
-  object-fit: cover;
-}
-
-.texto {
-  width: 55%;
-}
-
-.texto h2 {
-  margin-top: 0;
-  font-size: 22px;
-}
-
-.texto p {
-  line-height: 1.6;
-  font-size: 15px;
-}
-
 hr {
   border: none;
   height: 4px;
   width: 100vw;
   margin: 70px 0;
-
-  background: linear-gradient(
-    90deg,
-    transparent,
-    #ff003c,
-    #ff4d6d,
-    #ff003c,
-    transparent
-  );
-
-  box-shadow:
-    0 0 8px #ff003c,
-    0 0 16px #ff003c,
-    0 0 30px rgba(255, 0, 60, 0.7);
-
+  background: linear-gradient(90deg, transparent, #ff003c, #ff4d6d, #ff003c, transparent);
+  box-shadow: 0 0 8px #ff003c, 0 0 20px rgba(255,0,60,.8);
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  }
+}
 
-/* Responsivo (celular) */
-@media (max-width: 700px) {
+/* MOBILE */
+@media (max-width: 750px) {
   .post {
     flex-direction: column;
   }
@@ -337,16 +140,8 @@ hr {
   .texto {
     width: 100%;
   }
-}
 
-@keyframes sangue {
-  0% {
-    background-position: 0% 50%;
+  main::before {
+    display: none;
   }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-  }
+                              } }
